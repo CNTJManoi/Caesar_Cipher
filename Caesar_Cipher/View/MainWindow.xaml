@@ -1,0 +1,66 @@
+﻿<Window x:Class="Caesar_Cipher.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ViewModel="clr-namespace:Caesar_Cipher.ViewModel"
+        xmlns:local="clr-namespace:Caesar_Cipher.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <ViewModel:MainWindowModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" ></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+
+            <TextBlock Text="Шифр Цезаря" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            </TextBlock>
+        </StackPanel>
+        <DockPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" DockPanel.Dock="Top">
+                <StackPanel Orientation="Horizontal" Margin="20,20,0,0">
+                    <TextBlock Text="Ваше сообщение:" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </TextBlock>
+                    <TextBox Width="500" FontSize="18" Margin="112,0,0,0" Text="{Binding EnterMessage}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20,20,0,0">
+                    <TextBlock Text="Смещение:" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </TextBlock>
+                    <TextBox Width="500" FontSize="18" Margin="167,0,0,0" Text="{Binding Bias}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20,20,0,0">
+                    <TextBlock Text="Зашифрованное сообщение:" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </TextBlock>
+                    <TextBox Width="500" IsReadOnly="True" FontSize="18" Margin="19,0,0,0" Text="{Binding EncryptedMessage}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20,20,0,0">
+                    <TextBlock Text="Расшифрованное сообщение:" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </TextBlock>
+                    <TextBox Width="500" IsReadOnly="True" FontSize="18" Margin="10,0,0,0" Text="{Binding DencryptedMessage}"></TextBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="1" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+                <StackPanel Orientation="Horizontal" Margin="20,20,0,0">
+                    <TextBlock Text="Алфавит:" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </TextBlock>
+                    <TextBox  Width="670" FontSize="18" Margin="10,0,0,0" Text="{Binding Alphabet}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    
+                    <Button FontSize="22" Content="Зашифровать сообщение" Margin="10" Command="{Binding FindEncryptedClick}" >
+                        
+                    </Button>
+                    <Button FontSize="22" Content="Расшифровать сообщение" Margin="10" Command="{Binding FindDencryptedClick}">
+                        
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+        
+    </Grid>
+</Window>
